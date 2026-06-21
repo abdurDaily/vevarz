@@ -44,10 +44,12 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: opacity 0.25s ease;
 }
 
 body.lang-en {
   font-family: var(--font-en);
+  letter-spacing: -0.01em;
 }
 
 body.lang-en h1,
@@ -63,8 +65,28 @@ body.lang-en .step-content-card p,
 body.lang-en .join-card p,
 body.lang-en .feature-card p,
 body.lang-en .reunited-card p,
-body.lang-en .footer-brand p {
+body.lang-en .footer-brand p,
+body.lang-en .stat-item span:last-child,
+body.lang-en .poster-btn,
+body.lang-en .button {
   font-family: var(--font-en);
+}
+
+body.lang-en h1,
+body.lang-en h2,
+body.lang-en h3 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+body.lang-en .hero-title {
+  line-height: 1.2;
+}
+
+body.lang-en .section-head h2,
+body.lang-en .center-head h2 {
+  font-weight: 800;
+  letter-spacing: -0.03em;
 }
 
 .en,
@@ -221,6 +243,24 @@ button {
   align-items: center;
   gap: 0.5rem;
   justify-self: end;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1320px) {
+  body.lang-en .nav-links a {
+    font-size: 0.82rem;
+    padding: 0.45rem 0.65rem;
+  }
+
+  body.lang-en .ghost-link {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.8rem;
+  }
+
+  body.lang-en .primary-link {
+    padding: 0.55rem 0.85rem;
+    font-size: 0.8rem;
+  }
 }
 
 .lang-button {
@@ -253,8 +293,10 @@ button {
   background: #fff;
   color: var(--text);
   font-size: 0.875rem;
-  font-weight: 600;
-  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .ghost-link:hover {
@@ -276,8 +318,9 @@ button {
   font-size: 0.875rem;
   font-weight: 700;
   box-shadow: var(--shadow);
-  transition: transform 0.2s, box-shadow 0.2s;
   white-space: nowrap;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .primary-link:hover,
@@ -384,20 +427,28 @@ button {
   flex-shrink: 0;
 }
 
-.hero h1 {
+.hero h1,
+.hero-title {
   margin: 0;
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 400;
-  line-height: 1.2;
+  font-size: clamp(1.85rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.3;
   letter-spacing: -0.01em;
   text-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
 }
 
+.hero-line-1,
+.hero-line-2,
 .hero h1 em {
   display: block;
-  margin-top: 0.25rem;
+  font-weight: 700;
   font-style: normal;
-  color: hsl(340, 85%, 68%);
+}
+
+.hero-line-2,
+.hero h1 em {
+  margin-top: 0.35rem;
+  color: hsl(340, 85%, 72%);
 }
 
 .tagline {
@@ -487,7 +538,9 @@ button {
 .footer-col,
 .footer-cta-inner {
   opacity: 0;
-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal,
@@ -571,20 +624,24 @@ button {
 }
 
 .stat-num {
+  font-family: var(--font-bn);
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--purple);
+}
+
+body.lang-en .stat-num {
   font-family: var(--font-en);
-  font-size: clamp(1.75rem, 3vw, 2.35rem);
   font-weight: 900;
-  line-height: 1;
-  background: var(--brand-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  letter-spacing: -0.03em;
 }
 
 .stat-item span:last-child {
-  color: var(--muted);
-  font-size: 0.88rem;
-  font-weight: 600;
+  color: var(--navy);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.3;
 }
 
 .case-card:nth-child(2) { transition-delay: 0.08s; }
@@ -624,8 +681,8 @@ button {
   margin: 0 0 1.25rem;
   text-align: center;
   color: var(--purple);
-  font-size: 1.1rem;
-  font-weight: 400;
+  font-size: 1.15rem;
+  font-weight: 700;
 }
 
 .logo-marquee {
@@ -720,15 +777,22 @@ button {
 .section-head h2,
 .center-head h2 {
   margin: 0;
-  color: var(--purple);
   font-size: clamp(1.75rem, 4vw, 2.75rem);
-  font-weight: 400;
-  line-height: 1.2;
+  font-weight: 700;
+  line-height: 1.25;
   letter-spacing: -0.01em;
 }
 
 .section-head h2 {
   background: linear-gradient(135deg, var(--purple) 30%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.center-head h2 {
+  color: var(--purple);
+  background: linear-gradient(135deg, var(--purple) 20%, var(--primary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -782,7 +846,18 @@ button {
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.poster-btn,
+.view-all,
+.join-link,
+.footer-links a,
+.nav-links a,
+.ghost-link,
+.primary-link,
+.button {
+  transition: all 0.3s ease;
 }
 
 .case-card:hover,
@@ -853,7 +928,7 @@ button {
   margin: 0;
   color: var(--purple);
   font-size: 1.15rem;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 1.35;
 }
 
@@ -931,8 +1006,8 @@ time {
 }
 
 .process-section .center-head h2 {
-  color: var(--navy);
   font-size: clamp(1.85rem, 4vw, 2.5rem);
+  font-weight: 700;
 }
 
 .process-timeline {
@@ -1050,7 +1125,7 @@ time {
   margin: 0;
   color: var(--navy);
   font-size: 1.15rem;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 1.35;
 }
 
@@ -1120,7 +1195,7 @@ time {
   margin: 0;
   color: var(--success);
   font-size: 1.05rem;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 .reunited-card p {
@@ -1173,7 +1248,7 @@ time {
   margin: 0;
   color: var(--purple);
   font-size: 1.2rem;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 .join-card p {
@@ -1293,7 +1368,7 @@ time {
   margin: 0;
   color: var(--purple);
   font-size: 1.05rem;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 .feature-card p {
@@ -1342,7 +1417,7 @@ time {
   margin: 0;
   color: #fff;
   font-size: clamp(1.35rem, 3vw, 1.85rem);
-  font-weight: 400;
+  font-weight: 700;
   line-height: 1.3;
 }
 
@@ -1431,7 +1506,7 @@ time {
   margin: 0 0 1.15rem;
   color: #fff;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 700;
   position: relative;
   padding-bottom: 0.65rem;
 }
@@ -1717,6 +1792,7 @@ time {
   }
 
   body.menu-open .mobile-drawer {
+    height: 100vh;
     transform: translateX(0);
   }
 
@@ -1822,12 +1898,94 @@ time {
   }
 
   .hero {
-    min-height: clamp(480px, 85vh, 600px);
-    padding: 6rem 0 4rem;
+    min-height: clamp(500px, 88vh, 620px);
+    padding: 5.5rem 0 3.5rem;
   }
 
-  .hero h1 {
-    font-size: clamp(1.75rem, 7vw, 2.5rem);
+  .hero-content {
+    width: 100%;
+    padding-inline: 0.25rem;
+  }
+
+  .hero h1,
+  .hero-title {
+    font-size: 1.55rem;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .hero-line-1,
+  .hero-line-2 {
+    display: block;
+    font-weight: 700;
+  }
+
+  .hero-line-2 {
+    margin-top: 0.4rem;
+    font-size: 1.05rem;
+    line-height: 1.45;
+  }
+
+  body.lang-en .hero h1,
+  body.lang-en .hero-title {
+    font-size: 1.45rem;
+    line-height: 1.35;
+  }
+
+  body.lang-en .hero-line-2 {
+    font-size: 1.2rem;
+  }
+
+  .kicker {
+    font-size: 0.72rem;
+    padding: 0.45rem 0.85rem;
+    max-width: 100%;
+    text-align: center;
+    line-height: 1.45;
+  }
+
+  .tagline {
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding-inline: 0.5rem;
+  }
+
+  .hero-copy {
+    font-size: 0.92rem;
+    padding-inline: 0.25rem;
+  }
+
+  .stats-bar {
+    margin-top: -1.25rem;
+    padding: 0 0 0.75rem;
+  }
+
+  .stat-num {
+    font-size: 1.75rem;
+    font-weight: 700;
+  }
+
+  body.lang-en .stat-num {
+    font-size: 1.65rem;
+    font-weight: 900;
+  }
+
+  .stat-item span:last-child {
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+
+  .section-head h2,
+  .center-head h2 {
+    font-size: 1.55rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  body.lang-en .section-head h2,
+  body.lang-en .center-head h2 {
+    font-size: 1.45rem;
+    font-weight: 800;
   }
 
   .hero-actions {
@@ -1837,6 +1995,13 @@ time {
 
   .button {
     width: 100%;
+    font-size: 0.88rem;
+    padding: 0.7rem 1rem;
+  }
+
+  body.lang-en .button {
+    font-size: 0.85rem;
+    font-weight: 700;
   }
 
   .partners .container {
@@ -1984,9 +2149,22 @@ time {
 }
 
 @media (max-width: 480px) {
-  .kicker {
-    font-size: 0.78rem;
-    padding: 0.4rem 0.85rem;
+  .hero h1,
+  .hero-title {
+    font-size: 1.4rem;
+  }
+
+  .hero-line-2 {
+    font-size: 0.98rem;
+  }
+
+  body.lang-en .hero h1,
+  body.lang-en .hero-title {
+    font-size: 1.35rem;
+  }
+
+  .stat-num {
+    font-size: 1.55rem;
   }
 
   .logo-track img {

@@ -11,6 +11,7 @@
   }
 
   function applyLanguage(lang) {
+    document.body.style.opacity = '0.92';
     currentLang = lang;
     localStorage.setItem('vevarz-lang', lang);
     document.documentElement.lang = lang;
@@ -19,7 +20,7 @@
 
     document.querySelectorAll('[data-i18n]').forEach((el) => {
       const key = el.getAttribute('data-i18n');
-      if (I18N[lang] && I18N[lang][key]) {
+      if (I18N[lang] && I18N[lang][key] !== undefined) {
         el.textContent = I18N[lang][key];
       }
     });
@@ -31,6 +32,10 @@
       }
     });
 
+    document.querySelectorAll('.tagline .en').forEach((el) => {
+      el.style.display = lang === 'en' ? 'none' : '';
+    });
+
     const titleEl = document.querySelector('title[data-i18n]');
     if (titleEl && I18N[lang]['meta.title']) {
       titleEl.textContent = I18N[lang]['meta.title'];
@@ -38,6 +43,10 @@
 
     const langLabel = document.querySelector('.lang-label');
     if (langLabel) langLabel.textContent = lang === 'bn' ? 'EN' : 'BN';
+
+    requestAnimationFrame(() => {
+      document.body.style.opacity = '';
+    });
   }
 
   if (langToggle) {
