@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="meta.title">VEVARZ Alert | বাংলাদেশের নিখোঁজ ব্যক্তি সতর্কতা প্ল্যাটফর্ম</title>
+  <meta name="description" content="নিখোঁজ ব্যক্তিদের তাৎক্ষণিক রিপোর্ট করুন। বাংলাদেশের জাতীয় নিখোঁজ ব্যক্তি সতর্কতা ব্যবস্থা।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a class="brand" href="#home">
+        <img class="brand-logo" src="./assets/logo.png" alt="VEVARZ Alert">
+      </a>
+
+      <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-hidden="true">
+      <label class="menu-button" for="nav-toggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </label>
+
+      <div class="nav-links">
+        <a class="active" href="#home" data-nav data-i18n="nav.home">হোম</a>
+        <a href="#missing" data-nav data-i18n="nav.missing">নিখোঁজ রিপোর্ট</a>
+        <a href="#found" data-nav data-i18n="nav.found">খুঁজে পাওয়া রিপোর্ট</a>
+        <a href="#alerts" data-nav data-i18n="nav.alerts">একটিভ এলার্ট</a>
+        <a href="#resources" data-nav data-i18n="nav.resources">রিসোর্স</a>
+      </div>
+
+      <div class="nav-actions">
+        <button type="button" class="lang-button" id="lang-toggle" aria-label="Change language">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span class="lang-label">EN</span>
+        </button>
+        <a class="ghost-link" href="#join">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span data-i18n="nav.join">যোগ দিন</span>
+        </a>
+        <a class="primary-link" href="#report">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L1 21h22L12 2zm0 4.5L18.5 19h-13L12 6.5zM11 10v4h2v-4h-2zm0 6v2h2v-2h-2z"/></svg>
+          <span data-i18n="nav.report">নিখোঁজ রিপোর্ট</span>
+        </a>
+      </div>
+    </nav>
+
+    <div class="mobile-overlay" aria-hidden="true"></div>
+    <aside class="mobile-drawer" aria-label="Mobile menu">
+      <div class="drawer-links">
+        <a href="#home" data-nav data-i18n="nav.home">হোম</a>
+        <a href="#missing" data-nav data-i18n="nav.missing">নিখোঁজ রিপোর্ট</a>
+        <a href="#found" data-nav data-i18n="nav.found">খুঁজে পাওয়া রিপোর্ট</a>
+        <a href="#alerts" data-nav data-i18n="nav.alerts">একটিভ এলার্ট</a>
+        <a href="#resources" data-nav data-i18n="nav.resources">রিসোর্স</a>
+        <a href="#join" data-nav data-i18n="nav.join">যোগ দিন</a>
+      </div>
+      <a class="drawer-cta" href="#report" data-i18n="nav.drawerCta">নিখোঁজ ব্যক্তি রিপোর্ট</a>
+    </aside>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <span class="slide slide-one"></span>
+        <span class="slide slide-two"></span>
+        <span class="slide slide-three"></span>
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-pattern" aria-hidden="true"></div>
+
+      <div class="hero-content container">
+        <p class="kicker animate-up">
+          <span class="pulse-dot"></span>
+          <span data-i18n="hero.kicker">বাংলাদেশের জাতীয় নিখোঁজ ব্যক্তি সতর্কতা ব্যবস্থা</span>
+        </p>
+        <h1 class="animate-up delay-1">
+          <span data-i18n="hero.title1">প্রতিটি মুহূর্ত গুরুত্বপূর্ণ।</span>
+          <em data-i18n="hero.title2">নিখোঁজদের ঘরে ফিরিয়ে আনতে সাহায্য করুন।</em>
+        </h1>
+        <p class="tagline animate-up delay-2">
+          <span data-i18n="hero.tagline">প্রতিটি জীবন গুরুত্বপূর্ণ</span>
+          <span class="en" data-i18n="hero.taglineEn">| Every Life Matters</span>
+        </p>
+        <p class="hero-copy animate-up delay-3" data-i18n="hero.copy">
+          নিখোঁজ ব্যক্তিদের তাৎক্ষণিক রিপোর্ট করুন। তথ্য দিন। কর্তৃপক্ষের সাথে সংযুক্ত হন। বাংলাদেশের নিরাপত্তায় একীভূত প্ল্যাটফর্ম।
+        </p>
+        <div class="hero-actions animate-up delay-4" id="report">
+          <a class="button primary" href="#missing">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L1 21h22L12 2zm0 4.5L18.5 19h-13L12 6.5zM11 10v4h2v-4h-2zm0 6v2h2v-2h-2z"/></svg>
+            <span data-i18n="hero.btnMissing">নিখোঁজ ব্যক্তি রিপোর্ট</span>
+            <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="button secondary" href="#found">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            <span data-i18n="hero.btnFound">খুঁজে পাওয়া ব্যক্তি রিপোর্ট</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-bar reveal-scale">
+      <div class="container stats-grid">
+        <div class="stat-item">
+          <strong class="stat-num" data-count="248">0</strong>
+          <span data-i18n="stats.cases">সক্রিয় কেস</span>
+        </div>
+        <div class="stat-item">
+          <strong class="stat-num" data-count="1320">0</strong>
+          <span data-i18n="stats.reunited">পুনর্মিলিত</span>
+        </div>
+        <div class="stat-item">
+          <strong class="stat-num" data-count="4500">0</strong>
+          <span data-i18n="stats.volunteers">স্বেচ্ছাসেবক</span>
+        </div>
+        <div class="stat-item">
+          <strong class="stat-num" data-count="85">0</strong>
+          <span data-i18n="stats.partners">অংশীদার</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="partners" aria-label="Partners">
+      <div class="container">
+        <h3 data-i18n="partners.title">আমাদের অংশীদার</h3>
+        <div class="logo-marquee">
+          <div class="marquee-fade marquee-fade-left"></div>
+          <div class="marquee-fade marquee-fade-right"></div>
+          <div class="logo-track">
+            <img src="https://munalert.org/partner-logos/p1.webp" alt="Partner 1" loading="lazy">
+            <img src="https://munalert.org/partner-logos/p2.jpeg" alt="Partner 2" loading="lazy">
+            <img src="https://munalert.org/partner-logos/p3.png" alt="Partner 3" loading="lazy">
+            <img src="https://munalert.org/partner-logos/p4.png" alt="Partner 4" loading="lazy">
+            <img src="https://munalert.org/partner-logos/p5.png" alt="Partner 5" loading="lazy">
+            <img src="https://munalert.org/partner-logos/p1.webp" alt="" aria-hidden="true" loading="lazy">
+            <img src="https://munalert.org/partner-logos/p2.jpeg" alt="" aria-hidden="true" loading="lazy">
+            <img src="https://munalert.org/partner-logos/p3.png" alt="" aria-hidden="true" loading="lazy">
+            <img src="https://munalert.org/partner-logos/p4.png" alt="" aria-hidden="true" loading="lazy">
+            <img src="https://munalert.org/partner-logos/p5.png" alt="" aria-hidden="true" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="alerts">
+      <div class="container">
+        <div class="section-head reveal-left">
+          <div>
+            <span class="section-label" data-i18n="alerts.label">জরুরি সতর্কতা</span>
+            <h2 data-i18n="alerts.title">সাম্প্রতিক নিখোঁজ সতর্কতা</h2>
+            <p data-i18n="alerts.desc">এই ব্যক্তিদের খুঁজে পেতে সাহায্য করুন। প্রতিটি তথ্য গুরুত্বপূর্ণ।</p>
+          </div>
+          <a class="view-all" href="#alerts"><span data-i18n="alerts.viewAll">সব দেখুন</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+
+        <div class="case-grid" id="missing">
+          <article class="case-card reveal-up">
+            <div class="case-image">
+              <img src="https://munalert.org/api/reports/MUN-2026-699498/image" alt="Marziya Aktar Maisha" loading="lazy">
+              <span class="badge urgent" data-i18n="badge.missing">নিখোঁজ</span>
+            </div>
+            <div class="case-content">
+              <span class="case-id">MUN-2026-699498</span>
+              <h3>Marziya Aktar Maisha</h3>
+              <p class="meta">১ বছর • মেয়ে</p>
+              <p class="location">এলাকা: ইদবারদী, আড়াইহাজার, নারায়ণগঞ্জ</p>
+              <time>২১ জুন, ২০২৬ এ ০৪:৫৫ PM</time>
+              <button type="button" class="poster-btn" data-i18n="poster.download">পোস্টার ডাউনলোড করুন</button>
+            </div>
+          </article>
+
+          <article class="case-card reveal-up">
+            <div class="case-image">
+              <img src="https://munalert.org/api/reports/MUN-2026-062016/image" alt="Ariah Amin" loading="lazy">
+              <span class="badge urgent" data-i18n="badge.missing">নিখোঁজ</span>
+            </div>
+            <div class="case-content">
+              <span class="case-id">MUN-2026-062016</span>
+              <h3>Ariah Amin</h3>
+              <p class="meta">১০ বছর • মেয়ে</p>
+              <p class="location">Road No 4, Tilpapara, Khilgaon, Dhaka</p>
+              <time>২১ জুন, ২০২৬ এ ১০:৫৪ AM</time>
+              <button type="button" class="poster-btn" data-i18n="poster.download">পোস্টার ডাউনলোড করুন</button>
+            </div>
+          </article>
+
+          <article class="case-card reveal-up">
+            <div class="case-image">
+              <img src="https://munalert.org/api/reports/MUN-2026-778542/image" alt="Israt Jahan Nusaiba" loading="lazy">
+              <span class="badge urgent" data-i18n="badge.missing">নিখোঁজ</span>
+            </div>
+            <div class="case-content">
+              <span class="case-id">MUN-2026-778542</span>
+              <h3>Israt Jahan Nusaiba</h3>
+              <p class="meta">৩ বছর • মেয়ে</p>
+              <p class="location">ভালুকিয়া, উখিয়া, কক্সবাজার</p>
+              <time>২০ জুন, ২০২৬ এ ১১:১০ PM</time>
+              <button type="button" class="poster-btn" data-i18n="poster.download">পোস্টার ডাউনলোড করুন</button>
+            </div>
+          </article>
+
+          <article class="case-card reveal-up">
+            <div class="case-image">
+              <img src="https://munalert.org/api/reports/MUN-2026-369331/image" alt="Bayezid Islam Lisan" loading="lazy">
+              <span class="badge urgent" data-i18n="badge.missing">নিখোঁজ</span>
+            </div>
+            <div class="case-content">
+              <span class="case-id">MUN-2026-369331</span>
+              <h3>Bayezid Islam (Lisan)</h3>
+              <p class="meta">১৩ বছর • ছেলে</p>
+              <p class="location">Tejgaon Railway Station</p>
+              <time>২০ জুন, ২০২৬ এ ১২:০১ AM</time>
+              <button type="button" class="poster-btn" data-i18n="poster.download">পোস্টার ডাউনলোড করুন</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft-section" id="found">
+      <div class="container">
+        <div class="section-head reveal-right">
+          <div>
+            <span class="section-label" data-i18n="found.label">পরিবার খোঁজা</span>
+            <h2 data-i18n="found.title">খুঁজে পাওয়া ব্যক্তি</h2>
+            <p data-i18n="found.desc">সম্প্রতি খুঁজে পাওয়া ব্যক্তি যাদের পরিবার খোঁজা হচ্ছে।</p>
+          </div>
+          <a class="view-all" href="#found"><span data-i18n="alerts.viewAll">সব দেখুন</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+
+        <div class="found-grid">
+          <article class="found-card reveal-up">
+            <div class="found-image">
+              <img src="https://munalert.org/api/reports/MUN-2026-909658/image" alt="Found person" loading="lazy">
+            </div>
+            <div class="found-body">
+              <span class="badge found" data-i18n="badge.family">পরিবার খোঁজা হচ্ছে</span>
+              <span class="case-id">MUN-2026-909658</span>
+              <h3>আনুমানিক বয়স: ৪ বছর • ছেলে</h3>
+              <p>সরকারি শিশু পরিবার (বালক), দেবিদ্বার, কুমিল্লা</p>
+              <time>৩১ জানুয়ারি, ২০২৬ এ ০৭:৪৮ PM</time>
+              <button type="button" class="poster-btn" data-i18n="poster.download">পোস্টার ডাউনলোড করুন</button>
+            </div>
+          </article>
+
+          <article class="found-card reveal-up">
+            <div class="found-image">
+              <img src="https://munalert.org/api/reports/MUN-2026-568451/image" alt="Found person" loading="lazy">
+            </div>
+            <div class="found-body">
+              <span class="badge found" data-i18n="badge.family">পরিবার খোঁজা হচ্ছে</span>
+              <span class="case-id">MUN-2026-568451</span>
+              <h3>আনুমানিক বয়স: ১২ বছর • ছেলে</h3>
+              <p>রায়চো, কালিরহাট, আদর্শ সদর, কুমিল্লা</p>
+              <time>১৮ জানুয়ারি, ২০২৬ এ ০৮:৩৮ PM</time>
+              <button type="button" class="poster-btn" data-i18n="poster.download">পোস্টার ডাউনলোড করুন</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process-section" id="process">
+      <div class="container">
+        <div class="center-head reveal-scale">
+          <h2 data-i18n="process.title">VEVARZ Alert কিভাবে কাজ করে</h2>
+          <p data-i18n="process.desc">নিখোঁজ ব্যক্তিদের দ্রুত খুঁজে পেতে একটি সুবিন্যস্ত প্রক্রিয়া</p>
+        </div>
+
+        <div class="process-timeline">
+          <article class="timeline-step reveal-left">
+            <div class="timeline-track">
+              <div class="step-icon-box step-icon-pink">
+                <span class="step-num-badge">1</span>
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              </div>
+              <div class="timeline-connector" aria-hidden="true"><span class="timeline-chevron"></span></div>
+            </div>
+            <div class="step-content-card">
+              <h3 data-i18n="process.s1t">রিপোর্ট জমা দিন</h3>
+              <p data-i18n="process.s1d">ছবি, বিবরণ এবং শেষ দেখা স্থান সহ নিখোঁজ বা খুঁজে পাওয়া ব্যক্তির রিপোর্ট দাখিল করুন।</p>
+            </div>
+          </article>
+
+          <article class="timeline-step reveal-left">
+            <div class="timeline-track">
+              <div class="step-icon-box step-icon-orange">
+                <span class="step-num-badge">2</span>
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+              </div>
+              <div class="timeline-connector" aria-hidden="true"><span class="timeline-chevron"></span></div>
+            </div>
+            <div class="step-content-card">
+              <h3 data-i18n="process.s2t">তাৎক্ষণিক সতর্কতা</h3>
+              <p data-i18n="process.s2d">আমাদের সিস্টেম একটি অনন্য কেস আইডি এবং শেয়ারযোগ্য পোস্টার তৈরি করে।</p>
+            </div>
+          </article>
+
+          <article class="timeline-step reveal-left">
+            <div class="timeline-track">
+              <div class="step-icon-box step-icon-navy">
+                <span class="step-num-badge">3</span>
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div class="timeline-connector" aria-hidden="true"><span class="timeline-chevron"></span></div>
+            </div>
+            <div class="step-content-card">
+              <h3 data-i18n="process.s3t">সামাজিক প্রতিক্রিয়া</h3>
+              <p data-i18n="process.s3d">নাগরিকরা তথ্য জমা দেন। AI-চালিত ম্যাচিং খুঁজে পাওয়া ব্যক্তিদের সংযুক্ত করে।</p>
+            </div>
+          </article>
+
+          <article class="timeline-step timeline-step-last reveal-left">
+            <div class="timeline-track">
+              <div class="step-icon-box step-icon-green">
+                <span class="step-num-badge">4</span>
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </div>
+            </div>
+            <div class="step-content-card step-content-card-success">
+              <div class="step-content-text">
+                <h3 data-i18n="process.s4t">নিরাপদ পুনর্মিলন</h3>
+                <p data-i18n="process.s4d">পরিবার যাচাই, ডকুমেন্টেশন এবং পরবর্তী সহায়তার মাধ্যমে পুনর্মিলন।</p>
+              </div>
+              <span class="step-success-mark" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reunited-section" id="reunited">
+      <div class="container">
+        <div class="section-head reveal-right">
+          <div>
+            <span class="section-label success-label" data-i18n="reunited.label">সফল কেস</span>
+            <h2 data-i18n="reunited.title">উদ্ধার/পুনর্মিলিত কেস</h2>
+            <p data-i18n="reunited.desc">সফলভাবে পরিবারে ফিরে যাওয়া ব্যক্তিদের গল্প।</p>
+          </div>
+          <a class="view-all" href="#reunited"><span data-i18n="alerts.viewAll">সব দেখুন</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+
+        <div class="reunited-grid">
+          <article class="reunited-card reveal-up">
+            <div class="reunited-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+            <h3 data-i18n="reunited.status">পুনর্মিলিত</h3>
+            <p class="case-id">MUN-2025-482910</p>
+            <p>৮ বছরের শিশু ৪৮ ঘণ্টার মধ্যে পরিবারের কাছে ফিরে এসেছে — ঢাকা মেট্রো এলাকা।</p>
+            <time>১৫ মে, ২০২৫</time>
+          </article>
+          <article class="reunited-card reveal-up">
+            <div class="reunited-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+            <h3 data-i18n="reunited.status">পুনর্মিলিত</h3>
+            <p class="case-id">MUN-2025-331204</p>
+            <p>সামাজিক মাধ্যম শেয়ার ও স্বেচ্ছাসেবক তথ্যের মাধ্যমে ৬ বছরের শিশু উদ্ধার।</p>
+            <time>২২ মার্চ, ২০২৫</time>
+          </article>
+          <article class="reunited-card reveal-up">
+            <div class="reunited-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+            <h3 data-i18n="reunited.status">পুনর্মিলিত</h3>
+            <p class="case-id">MUN-2025-118733</p>
+            <p>চট্টগ্রাম বন্দর এলাকায় খুঁজে পাওয়া শিশু যাচাইকৃত পুনর্মিলনের মাধ্যমে পরিবারে ফিরেছে।</p>
+            <time>৮ জানুয়ারি, ২০২৫</time>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="join" id="join">
+      <div class="container">
+        <div class="center-head reveal-scale">
+          <span class="section-label" data-i18n="join.label">সহযোগিতা</span>
+          <h2 data-i18n="join.title">আমাদের সাথে যোগ দিন</h2>
+          <p data-i18n="join.desc">নিখোঁজদের খোঁজে আপনার ভূমিকা রাখুন</p>
+        </div>
+
+        <div class="join-grid">
+          <article class="join-card reveal-up">
+            <div class="join-icon volunteer"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <h3 data-i18n="join.volunteer">স্বেচ্ছাসেবক</h3>
+            <p data-i18n="join.volunteerD">আপনার সময় ও দক্ষতা দিয়ে নিখোঁজ ব্যক্তিদের খুঁজে পেতে সাহায্য করুন।</p>
+            <a class="join-link" href="#join"><span data-i18n="join.start">শুরু করুন</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+          <article class="join-card reveal-up">
+            <div class="join-icon partner"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <h3 data-i18n="join.partner">অংশীদার</h3>
+            <p data-i18n="join.partnerD">আপনার প্রতিষ্ঠানকে VEVARZ Alert-এর সাথে যুক্ত করুন।</p>
+            <a class="join-link" href="#join"><span data-i18n="join.start">শুরু করুন</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+          <article class="join-card reveal-up">
+            <div class="join-icon donor"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+            <h3 data-i18n="join.donor">দাতা</h3>
+            <p data-i18n="join.donorD">আর্থিক সহায়তা দিয়ে এই মিশনকে এগিয়ে নিন।</p>
+            <a class="join-link" href="#join"><span data-i18n="join.start">শুরু করুন</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section videos" id="resources">
+      <div class="container">
+        <div class="center-head reveal-scale">
+          <span class="section-label" data-i18n="videos.label">ভিডিও</span>
+          <h2 data-i18n="videos.title">আমাদের কার্যক্রম</h2>
+          <p data-i18n="videos.desc">আমাদের পূর্ববর্তী কার্যক্রম এবং সচেতনতামূলক প্রোগ্রাম দেখুন।</p>
+        </div>
+        <div class="video-grid">
+          <a class="video-card reveal-up" href="https://www.youtube.com/watch?v=_MD1wM3s8Rw" target="_blank" rel="noreferrer">
+            <img src="https://img.youtube.com/vi/_MD1wM3s8Rw/hqdefault.jpg" alt="Summit 2025" loading="lazy">
+            <span class="play-btn" aria-hidden="true"></span>
+          </a>
+          <a class="video-card reveal-up" href="https://www.youtube.com/watch?v=QO80htjN0AY" target="_blank" rel="noreferrer">
+            <img src="https://img.youtube.com/vi/QO80htjN0AY/hqdefault.jpg" alt="Amber Alert" loading="lazy">
+            <span class="play-btn" aria-hidden="true"></span>
+          </a>
+          <a class="video-card reveal-up" href="https://www.youtube.com/watch?v=xmr-5iH9v4A" target="_blank" rel="noreferrer">
+            <img src="https://img.youtube.com/vi/xmr-5iH9v4A/hqdefault.jpg" alt="Summit" loading="lazy">
+            <span class="play-btn" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section feature-section">
+      <div class="container">
+        <div class="center-head reveal-scale">
+          <span class="section-label" data-i18n="features.label">বৈশিষ্ট্য</span>
+          <h2 data-i18n="features.title">দ্রুততা ও নিরাপত্তার জন্য তৈরি</h2>
+          <p data-i18n="features.desc">প্রতিটি বৈশিষ্ট্য নিরাপদ উদ্ধারের সম্ভাবনা সর্বাধিক করতে ডিজাইন করা হয়েছে</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card reveal-up">
+            <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <h3 data-i18n="feat.f1t">কোনো অপেক্ষার সময় নেই</h3>
+            <p data-i18n="feat.f1d">এখনই রিপোর্ট করুন। নিখোঁজদের খুঁজে পেতে প্রতিটি সেকেন্ড গুরুত্বপূর্ণ।</p>
+          </article>
+          <article class="feature-card reveal-up">
+            <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <h3 data-i18n="feat.f2t">জিপিএস লোকেশন ট্র্যাকিং</h3>
+            <p data-i18n="feat.f2d">সর্বশেষ দেখা স্থানের জন্য সুনির্দিষ্ট লোকেশন চিহ্নিত করে ম্যাপ-ভিত্তিক রিপোর্টিং।</p>
+          </article>
+          <article class="feature-card reveal-up">
+            <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            <h3 data-i18n="feat.f3t">বেনামে রিপোর্টিং</h3>
+            <p data-i18n="feat.f3d">বেনামে তথ্য জমা দিন। আপনার পরিচয় সুরক্ষিত থাকবে।</p>
+          </article>
+          <article class="feature-card reveal-up">
+            <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <h3 data-i18n="feat.f4t">গোপনীয়তা সুরক্ষা</h3>
+            <p data-i18n="feat.f4d">যাচাইকৃত পুনর্মিলন না হওয়া পর্যন্ত পরিচয় সুরক্ষিত থাকে।</p>
+          </article>
+          <article class="feature-card reveal-up">
+            <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <h3 data-i18n="feat.f5t">বহু-সংস্থা সমন্বয়</h3>
+            <p data-i18n="feat.f5d">পুলিশ, এনজিও, হাসপাতাল এবং আশ্রয়কেন্দ্র একসাথে নির্বিঘ্নে কাজ করে।</p>
+          </article>
+          <article class="feature-card reveal-up">
+            <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+            <h3 data-i18n="feat.f6t">কেস ট্র্যাকিং</h3>
+            <p data-i18n="feat.f6d">সহজে শেয়ার এবং ট্র্যাকিংয়ের জন্য QR কোড সহ অনন্য কেস আইডি।</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-cta">
+      <div class="container footer-cta-inner reveal-scale">
+        <div>
+          <h2 data-i18n="footer.ctaTitle">একটি তথ্য জীবন বাঁচাতে পারে</h2>
+          <p data-i18n="footer.ctaDesc">নিখোঁজ কাউকে দেখেছেন? এখনই রিপোর্ট করুন — প্রতিটি সেকেন্ড গুরুত্বপূর্ণ।</p>
+        </div>
+        <a class="footer-cta-btn" href="#report" data-i18n="footer.ctaBtn">তাৎক্ষণিক রিপোর্ট</a>
+      </div>
+    </div>
+
+    <div class="container footer-main">
+      <div class="footer-grid">
+        <div class="footer-brand reveal-up">
+          <img class="footer-logo" src="./assets/logo.png" alt="VEVARZ Alert">
+          <p data-i18n="footer.about">নিখোঁজ ব্যক্তিদের রিপোর্ট এবং খুঁজে বের করার জন্য বাংলাদেশের নিরাপদ প্ল্যাটফর্ম। প্রতিটি সেকেন্ড গুরুত্বপূর্ণ।</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-2C18.88 4 12 4 12 4s-6.88 0-8.59.42a2.78 2.78 0 0 0-1.95 2 29 29 0 0 0-.42 5.58 29 29 0 0 0 .42 5.58 2.78 2.78 0 0 0 1.95 2C5.12 20 12 20 12 20s6.88 0 8.59-.42a2.78 2.78 0 0 0 1.95-2 29 29 0 0 0 .42-5.58 29 29 0 0 0-.42-5.58z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#16042f"/></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-col reveal-up">
+          <h3 data-i18n="footer.links">দ্রুত লিংক</h3>
+          <nav class="footer-links">
+            <a href="#missing" data-i18n="footer.fl1">নিখোঁজ ব্যক্তি রিপোর্ট</a>
+            <a href="#found" data-i18n="footer.fl2">খুঁজে পাওয়া রিপোর্ট</a>
+            <a href="#alerts" data-i18n="footer.fl3">একটিভ কেস খুঁজুন</a>
+            <a href="#resources" data-i18n="footer.fl4">নিরাপত্তা রিসোর্স</a>
+          </nav>
+        </div>
+
+        <div class="footer-col reveal-up">
+          <h3 data-i18n="footer.contact">জরুরি যোগাযোগ</h3>
+          <div class="footer-contact-card">
+            <p class="footer-label" data-i18n="footer.helpline">জাতীয় হেল্পলাইন</p>
+            <a class="footer-phone" href="tel:13219">13219 / 999</a>
+            <p class="footer-label" data-i18n="footer.emailLabel">ইমেইল সাপোর্ট</p>
+            <a class="footer-email" href="mailto:help@vevarz.com">help@vevarz.com</a>
+          </div>
+        </div>
+
+        <div class="footer-col reveal-up">
+          <h3 data-i18n="footer.newsletter">আপডেট পান</h3>
+          <p class="footer-newsletter-desc" data-i18n="footer.newsletterD">নিখোঁজ সতর্কতা ও সফল কেসের খবর ইমেইলে পান।</p>
+          <form class="footer-newsletter" onsubmit="return false;">
+            <input type="email" data-i18n-placeholder="footer.emailPlaceholder" placeholder="আপনার ইমেইল" aria-label="Email">
+            <button type="submit" data-i18n="footer.subscribe">সাবস্ক্রাইব</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p data-i18n="footer.copyright">© ২০২৬ VEVARZ Alert। সর্বস্বত্ব সংরক্ষিত।</p>
+      <div class="footer-legal">
+        <a href="#" data-i18n="footer.privacy">গোপনীয়তা নীতি</a>
+        <a href="#" data-i18n="footer.terms">ব্যবহারের শর্তাবলী</a>
+        <a href="#" data-i18n="footer.accessibility">অ্যাক্সেসিবিলিটি</a>
+      </div>
+    </div>
+  </footer>
+
+  <a class="floating-call" href="tel:13219">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    13219
+  </a>
+
+  <nav class="mobile-nav pb-safe" aria-label="Mobile navigation">
+    <a class="active" href="#home" data-nav>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+      <span data-i18n="mobile.home">হোম</span>
+    </a>
+    <a href="#missing" data-nav>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L1 21h22L12 2z"/></svg>
+      <span data-i18n="mobile.missing">নিখোঁজ</span>
+    </a>
+    <a href="#found" data-nav>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      <span data-i18n="mobile.found">পাওয়া</span>
+    </a>
+    <a href="#alerts" data-nav>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+      <span data-i18n="mobile.alerts">এলার্ট</span>
+    </a>
+    <a href="#join" data-nav>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+      <span data-i18n="mobile.join">যোগ দিন</span>
+    </a>
+  </nav>
+
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
