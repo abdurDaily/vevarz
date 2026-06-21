@@ -1,13 +1,24 @@
 (function () {
   const header = document.querySelector('.site-header');
   const navToggle = document.getElementById('nav-toggle');
-  const mobileOverlay = document.querySelector('.mobile-overlay');
+  const mobileOverlay = document.getElementById('mobile-overlay');
+  const mobileDrawer = document.getElementById('mobile-drawer');
+  const drawerClose = document.getElementById('drawer-close');
   const langToggle = document.getElementById('lang-toggle');
+  const langToggleMobile = document.getElementById('lang-toggle-mobile');
   let currentLang = localStorage.getItem('vevarz-lang') || 'bn';
 
   function closeMenu() {
     if (navToggle) navToggle.checked = false;
     document.body.classList.remove('menu-open');
+    if (mobileDrawer) mobileDrawer.setAttribute('aria-hidden', 'true');
+    if (mobileOverlay) mobileOverlay.setAttribute('aria-hidden', 'true');
+  }
+
+  function openMenu() {
+    document.body.classList.add('menu-open');
+    if (mobileDrawer) mobileDrawer.setAttribute('aria-hidden', 'false');
+    if (mobileOverlay) mobileOverlay.setAttribute('aria-hidden', 'false');
   }
 
   function applyLanguage(lang) {
@@ -41,19 +52,22 @@
       titleEl.textContent = I18N[lang]['meta.title'];
     }
 
-    const langLabel = document.querySelector('.lang-label');
-    if (langLabel) langLabel.textContent = lang === 'bn' ? 'EN' : 'BN';
+    const label = lang === 'bn' ? 'EN' : 'BN';
+    document.querySelectorAll('.lang-label, .lang-label-mobile').forEach((el) => {
+      el.textContent = label;
+    });
 
     requestAnimationFrame(() => {
       document.body.style.opacity = '';
     });
   }
 
-  if (langToggle) {
-    langToggle.addEventListener('click', () => {
-      applyLanguage(currentLang === 'bn' ? 'en' : 'bn');
-    });
+  function toggleLanguage() {
+    applyLanguage(currentLang === 'bn' ? 'en' : 'bn');
   }
+
+  if (langToggle) langToggle.addEventListener('click', toggleLanguage);
+  if (langToggleMobile) langToggleMobile.addEventListener('click', toggleLanguage);
 
   applyLanguage(currentLang);
 
@@ -63,14 +77,22 @@
 
   if (navToggle) {
     navToggle.addEventListener('change', () => {
-      document.body.classList.toggle('menu-open', navToggle.checked);
+      if (navToggle.checked) openMenu();
+      else closeMenu();
     });
   }
 
+  if (drawerClose) drawerClose.addEventListener('click', closeMenu);
   if (mobileOverlay) mobileOverlay.addEventListener('click', closeMenu);
 
-  document.querySelectorAll('.nav-links a, .mobile-drawer a').forEach((link) => {
+  document.querySelectorAll('.drawer-links a, .drawer-brand, .drawer-cta').forEach((link) => {
     link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.body.classList.contains('menu-open')) {
+      closeMenu();
+    }
   });
 
   const revealClasses = '.reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale, .case-card, .found-card, .timeline-step, .join-card, .feature-card, .video-card, .reunited-card, .footer-brand, .footer-col, .footer-cta-inner';
