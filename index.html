@@ -7,14 +7,20 @@
   <meta name="description" content="নিখোঁজ ব্যক্তিদের তাৎক্ষণিক রিপোর্ট করুন। বাংলাদেশের জাতীয় নিখোঁজ ব্যক্তি সতর্কতা ব্যবস্থা।">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header">
     <nav class="navbar container" aria-label="Main navigation">
-      <a class="brand" href="#home">
-        <img class="brand-logo" src="./assets/logo.png" alt="VEVARZ ">
+      <a class="brand" href="#home" aria-label="VEVARZ Home">
+        <span class="brand-mark">
+          <img class="brand-logo" src="./assets/logo.png" alt="">
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">VEVARZ</span>
+          <span class="brand-tag" data-i18n="brand.tag">নিখোঁজ সতর্কতা</span>
+        </span>
       </a>
 
       <div class="mobile-header-actions">
@@ -63,7 +69,10 @@
   <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile menu" aria-hidden="true">
     <div class="drawer-header">
       <a class="drawer-brand" href="#home">
-        <img class="drawer-logo" src="./assets/logo.png" alt="VEVARZ ">
+        <span class="brand-mark brand-mark--sm">
+          <img class="drawer-logo" src="./assets/logo.png" alt="">
+        </span>
+        <span class="brand-name brand-name--light">VEVARZ</span>
       </a>
       <button type="button" class="drawer-close" id="drawer-close" aria-label="Close menu">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
@@ -117,6 +126,12 @@
       <div class="hero-glow" aria-hidden="true"></div>
       <div class="hero-pattern" aria-hidden="true"></div>
 
+      <div class="hero-orbs" aria-hidden="true">
+        <span class="orb orb-1"></span>
+        <span class="orb orb-2"></span>
+        <span class="orb orb-3"></span>
+      </div>
+
       <div class="hero-content container">
         <p class="kicker animate-up">
           <span class="pulse-dot"></span>
@@ -124,7 +139,9 @@
         </p>
         <h1 class="animate-up delay-1 hero-title">
           <span class="hero-line-1" data-i18n="hero.title1">প্রতিটি মুহূর্ত গুরুত্বপূর্ণ।</span>
-          <span class="hero-line-2" data-i18n="hero.title2">নিখোঁজদের ঘরে ফিরিয়ে আনতে সাহায্য করুন।</span>
+          <span class="hero-line-2 hero-typed-line">
+            <span id="hero-typed" aria-live="polite"></span><span class="typed-cursor" aria-hidden="true"></span>
+          </span>
         </h1>
         <p class="tagline animate-up delay-2">
           <span data-i18n="hero.tagline">প্রতিটি জীবন গুরুত্বপূর্ণ</span>
@@ -144,6 +161,10 @@
             <span data-i18n="hero.btnFound">খুঁজে পাওয়া ব্যক্তি রিপোর্ট</span>
           </a>
         </div>
+        <a class="hero-scroll-hint animate-up delay-5" href="#missing" aria-label="Scroll down">
+          <span data-i18n="hero.scroll">অ্যালার্ট দেখুন</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </a>
       </div>
     </section>
 
@@ -168,24 +189,51 @@
       </div>
     </section>
 
+    <section class="emergency-strip reveal-scale">
+      <div class="container emergency-inner">
+        <article class="emergency-card">
+          <div class="emergency-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <strong data-i18n="emergency.hotline">জাতীয় জরুরি হেল্পলাইন</strong>
+            <p data-i18n="emergency.hotlineD">২৪/৭ নিখোঁজ ও শিশু সুরক্ষা সংক্রান্ত জরুরি সহায়তা</p>
+            <a href="tel:13219">13219</a>
+          </div>
+        </article>
+        <article class="emergency-card">
+          <div class="emergency-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <strong data-i18n="emergency.police">পুলিশ জরুরি সেবা</strong>
+            <p data-i18n="emergency.policeD">নিখোঁজ রিপোর্ট ও তাৎক্ষণিক আইন প্রয়োগ সহায়তা</p>
+            <a href="tel:999">999</a>
+          </div>
+        </article>
+        <article class="emergency-card">
+          <div class="emergency-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <strong data-i18n="emergency.email">VEVARZ সাপোর্ট</strong>
+            <p data-i18n="emergency.emailD">কেস আপডেট, স্বেচ্ছাসেবক ও অংশীদারিত্বের জন্য যোগাযোগ</p>
+            <a href="mailto:help@vevarz.com">help@vevarz.com</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <section class="partners" aria-label="Partners">
       <div class="container">
         <h3 data-i18n="partners.title">আমাদের অংশীদার</h3>
-        <div class="logo-marquee">
-          <div class="marquee-fade marquee-fade-left"></div>
-          <div class="marquee-fade marquee-fade-right"></div>
-          <div class="logo-track">
-            <img src="https://munalert.org/partner-logos/p1.webp" alt="Partner 1" loading="lazy">
-            <img src="https://munalert.org/partner-logos/p2.jpeg" alt="Partner 2" loading="lazy">
-            <img src="https://munalert.org/partner-logos/p3.png" alt="Partner 3" loading="lazy">
-            <img src="https://munalert.org/partner-logos/p4.png" alt="Partner 4" loading="lazy">
-            <img src="https://munalert.org/partner-logos/p5.png" alt="Partner 5" loading="lazy">
-            <img src="https://munalert.org/partner-logos/p1.webp" alt="" aria-hidden="true" loading="lazy">
-            <img src="https://munalert.org/partner-logos/p2.jpeg" alt="" aria-hidden="true" loading="lazy">
-            <img src="https://munalert.org/partner-logos/p3.png" alt="" aria-hidden="true" loading="lazy">
-            <img src="https://munalert.org/partner-logos/p4.png" alt="" aria-hidden="true" loading="lazy">
-            <img src="https://munalert.org/partner-logos/p5.png" alt="" aria-hidden="true" loading="lazy">
-          </div>
+        <div class="partner-badges">
+          <span class="partner-badge" data-i18n="partners.p1">বাংলাদেশ পুলিশ</span>
+          <span class="partner-badge" data-i18n="partners.p2">সমাজসেবা অধিদপ্তর</span>
+          <span class="partner-badge" data-i18n="partners.p3">BRAC</span>
+          <span class="partner-badge" data-i18n="partners.p4">Save the Children</span>
+          <span class="partner-badge" data-i18n="partners.p5">UNICEF বাংলাদেশ</span>
+          <span class="partner-badge" data-i18n="partners.p6">A2I — Aspire to Innovate</span>
         </div>
       </div>
     </section>
@@ -204,60 +252,60 @@
         <div class="case-grid" id="missing">
           <article class="case-card reveal-up">
             <div class="case-image">
-              <img src="https://munalert.org/api/reports/MUN-2026-699498/image" alt="Marziya Aktar Maisha" loading="lazy">
+              <img src="https://munalert.org/api/reports/MUN-2026-699498/image" alt="মারজিয়া আক্তার মাইশা" loading="lazy">
               <span class="badge urgent" data-i18n="badge.missing">নিখোঁজ</span>
             </div>
             <div class="case-content">
-              <span class="case-id">MUN-2026-699498</span>
-              <h3>Marziya Aktar Maisha</h3>
+              <span class="case-id">VEV-2026-699498</span>
+              <h3>মারজিয়া আক্তার মাইশা</h3>
               <p class="meta">১ বছর • মেয়ে</p>
-              <p class="location">এলাকা: ইদবারদী, আড়াইহাজার, নারায়ণগঞ্জ</p>
-              <time>২১ জুন, ২০২৬ এ ০৪:৫৫ PM</time>
+              <p class="location">ইদবারদী, আড়াইহাজার, নারায়ণগঞ্জ</p>
+              <time>২১ জুন, ২০২৬ • বিকাল ৪:৫৫</time>
               <button type="button" class="poster-btn" data-i18n="poster.download">পোস্টার ডাউনলোড করুন</button>
             </div>
           </article>
 
           <article class="case-card reveal-up">
             <div class="case-image">
-              <img src="https://munalert.org/api/reports/MUN-2026-062016/image" alt="Ariah Amin" loading="lazy">
+              <img src="https://munalert.org/api/reports/MUN-2026-062016/image" alt="আরিয়াহ আমিন" loading="lazy">
               <span class="badge urgent" data-i18n="badge.missing">নিখোঁজ</span>
             </div>
             <div class="case-content">
-              <span class="case-id">MUN-2026-062016</span>
-              <h3>Ariah Amin</h3>
+              <span class="case-id">VEV-2026-062016</span>
+              <h3>আরিয়াহ আমিন</h3>
               <p class="meta">১০ বছর • মেয়ে</p>
-              <p class="location">Road No 4, Tilpapara, Khilgaon, Dhaka</p>
-              <time>২১ জুন, ২০২৬ এ ১০:৫৪ AM</time>
+              <p class="location">রোড নং ৪, তিলপাপাড়া, খিলগাঁ, ঢাকা</p>
+              <time>২১ জুন, ২০২৬ • সকাল ১০:৫৪</time>
               <button type="button" class="poster-btn" data-i18n="poster.download">পোস্টার ডাউনলোড করুন</button>
             </div>
           </article>
 
           <article class="case-card reveal-up">
             <div class="case-image">
-              <img src="https://munalert.org/api/reports/MUN-2026-778542/image" alt="Israt Jahan Nusaiba" loading="lazy">
+              <img src="https://munalert.org/api/reports/MUN-2026-778542/image" alt="ইসরাত জাহান নুসাইবা" loading="lazy">
               <span class="badge urgent" data-i18n="badge.missing">নিখোঁজ</span>
             </div>
             <div class="case-content">
-              <span class="case-id">MUN-2026-778542</span>
-              <h3>Israt Jahan Nusaiba</h3>
+              <span class="case-id">VEV-2026-778542</span>
+              <h3>ইসরাত জাহান নুসাইবা</h3>
               <p class="meta">৩ বছর • মেয়ে</p>
               <p class="location">ভালুকিয়া, উখিয়া, কক্সবাজার</p>
-              <time>২০ জুন, ২০২৬ এ ১১:১০ PM</time>
+              <time>২০ জুন, ২০২৬ • রাত ১১:১০</time>
               <button type="button" class="poster-btn" data-i18n="poster.download">পোস্টার ডাউনলোড করুন</button>
             </div>
           </article>
 
           <article class="case-card reveal-up">
             <div class="case-image">
-              <img src="https://munalert.org/api/reports/MUN-2026-369331/image" alt="Bayezid Islam Lisan" loading="lazy">
+              <img src="https://munalert.org/api/reports/MUN-2026-369331/image" alt="বায়েজিদ ইসলাম লিসান" loading="lazy">
               <span class="badge urgent" data-i18n="badge.missing">নিখোঁজ</span>
             </div>
             <div class="case-content">
-              <span class="case-id">MUN-2026-369331</span>
-              <h3>Bayezid Islam (Lisan)</h3>
+              <span class="case-id">VEV-2026-369331</span>
+              <h3>বায়েজিদ ইসলাম (লিসান)</h3>
               <p class="meta">১৩ বছর • ছেলে</p>
-              <p class="location">Tejgaon Railway Station</p>
-              <time>২০ জুন, ২০২৬ এ ১২:০১ AM</time>
+              <p class="location">তেজগাঁ রেলস্টেশন, ঢাকা</p>
+              <time>২০ জুন, ২০২৬ • রাত ১২:০১</time>
               <button type="button" class="poster-btn" data-i18n="poster.download">পোস্টার ডাউনলোড করুন</button>
             </div>
           </article>
@@ -279,28 +327,28 @@
         <div class="found-grid">
           <article class="found-card reveal-up">
             <div class="found-image">
-              <img src="https://munalert.org/api/reports/MUN-2026-909658/image" alt="Found person" loading="lazy">
+              <img src="https://munalert.org/api/reports/MUN-2026-909658/image" alt="খুঁজে পাওয়া শিশু" loading="lazy">
             </div>
             <div class="found-body">
               <span class="badge found" data-i18n="badge.family">পরিবার খোঁজা হচ্ছে</span>
-              <span class="case-id">MUN-2026-909658</span>
+              <span class="case-id">VEV-2026-909658</span>
               <h3>আনুমানিক বয়স: ৪ বছর • ছেলে</h3>
               <p>সরকারি শিশু পরিবার (বালক), দেবিদ্বার, কুমিল্লা</p>
-              <time>৩১ জানুয়ারি, ২০২৬ এ ০৭:৪৮ PM</time>
+              <time>৩১ জানুয়ারি, ২০২৬ • সন্ধ্যা ৭:৪৮</time>
               <button type="button" class="poster-btn" data-i18n="poster.download">পোস্টার ডাউনলোড করুন</button>
             </div>
           </article>
 
           <article class="found-card reveal-up">
             <div class="found-image">
-              <img src="https://munalert.org/api/reports/MUN-2026-568451/image" alt="Found person" loading="lazy">
+              <img src="https://munalert.org/api/reports/MUN-2026-568451/image" alt="খুঁজে পাওয়া শিশু" loading="lazy">
             </div>
             <div class="found-body">
               <span class="badge found" data-i18n="badge.family">পরিবার খোঁজা হচ্ছে</span>
-              <span class="case-id">MUN-2026-568451</span>
+              <span class="case-id">VEV-2026-568451</span>
               <h3>আনুমানিক বয়স: ১২ বছর • ছেলে</h3>
               <p>রায়চো, কালিরহাট, আদর্শ সদর, কুমিল্লা</p>
-              <time>১৮ জানুয়ারি, ২০২৬ এ ০৮:৩৮ PM</time>
+              <time>১৮ জানুয়ারি, ২০২৬ • সন্ধ্যা ৮:৩৮</time>
               <button type="button" class="poster-btn" data-i18n="poster.download">পোস্টার ডাউনলোড করুন</button>
             </div>
           </article>
@@ -394,21 +442,21 @@
           <article class="reunited-card reveal-up">
             <div class="reunited-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
             <h3 data-i18n="reunited.status">পুনর্মিলিত</h3>
-            <p class="case-id">MUN-2025-482910</p>
+            <p class="case-id">VEV-2025-482910</p>
             <p>৮ বছরের শিশু ৪৮ ঘণ্টার মধ্যে পরিবারের কাছে ফিরে এসেছে — ঢাকা মেট্রো এলাকা।</p>
             <time>১৫ মে, ২০২৫</time>
           </article>
           <article class="reunited-card reveal-up">
             <div class="reunited-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
             <h3 data-i18n="reunited.status">পুনর্মিলিত</h3>
-            <p class="case-id">MUN-2025-331204</p>
+            <p class="case-id">VEV-2025-331204</p>
             <p>সামাজিক মাধ্যম শেয়ার ও স্বেচ্ছাসেবক তথ্যের মাধ্যমে ৬ বছরের শিশু উদ্ধার।</p>
             <time>২২ মার্চ, ২০২৫</time>
           </article>
           <article class="reunited-card reveal-up">
             <div class="reunited-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
             <h3 data-i18n="reunited.status">পুনর্মিলিত</h3>
-            <p class="case-id">MUN-2025-118733</p>
+            <p class="case-id">VEV-2025-118733</p>
             <p>চট্টগ্রাম বন্দর এলাকায় খুঁজে পাওয়া শিশু যাচাইকৃত পুনর্মিলনের মাধ্যমে পরিবারে ফিরেছে।</p>
             <time>৮ জানুয়ারি, ২০২৫</time>
           </article>
@@ -456,17 +504,52 @@
         </div>
         <div class="video-grid">
           <a class="video-card reveal-up" href="https://www.youtube.com/watch?v=_MD1wM3s8Rw" target="_blank" rel="noreferrer">
-            <img src="https://img.youtube.com/vi/_MD1wM3s8Rw/hqdefault.jpg" alt="Summit 2025" loading="lazy">
+            <img src="https://img.youtube.com/vi/_MD1wM3s8Rw/hqdefault.jpg" alt="VEVARZ সচেতনতা সম্মেলন" loading="lazy">
             <span class="play-btn" aria-hidden="true"></span>
+            <span class="video-caption">
+              <strong data-i18n="videos.v1t">VEVARZ সচেতনতা সম্মেলন ২০২৫</strong>
+              <span data-i18n="videos.v1d">নিখোঁজ শিশু সুরক্ষা ও সম্প্রদায় engagement</span>
+            </span>
           </a>
           <a class="video-card reveal-up" href="https://www.youtube.com/watch?v=QO80htjN0AY" target="_blank" rel="noreferrer">
-            <img src="https://img.youtube.com/vi/QO80htjN0AY/hqdefault.jpg" alt="Amber Alert" loading="lazy">
+            <img src="https://img.youtube.com/vi/QO80htjN0AY/hqdefault.jpg" alt="তাৎক্ষণিক সতর্কতা সিস্টেম" loading="lazy">
             <span class="play-btn" aria-hidden="true"></span>
+            <span class="video-caption">
+              <strong data-i18n="videos.v2t">তাৎক্ষণিক সতর্কতা কিভাবে কাজ করে</strong>
+              <span data-i18n="videos.v2d">রিপোর্ট থেকে পোস্টার ও সামাজিক শেয়ার পর্যন্ত</span>
+            </span>
           </a>
           <a class="video-card reveal-up" href="https://www.youtube.com/watch?v=xmr-5iH9v4A" target="_blank" rel="noreferrer">
-            <img src="https://img.youtube.com/vi/xmr-5iH9v4A/hqdefault.jpg" alt="Summit" loading="lazy">
+            <img src="https://img.youtube.com/vi/xmr-5iH9v4A/hqdefault.jpg" alt="স্বেচ্ছাসেবক প্রশিক্ষণ" loading="lazy">
             <span class="play-btn" aria-hidden="true"></span>
+            <span class="video-caption">
+              <strong data-i18n="videos.v3t">স্বেচ্ছাসেবক প্রশিক্ষণ কর্মশালা</strong>
+              <span data-i18n="videos.v3d">মাঠ পর্যায়ে কেস অনুসন্ধান ও নিরাপত্তা প্রোটোকল</span>
+            </span>
           </a>
+        </div>
+
+        <div class="resources-grid">
+          <article class="resource-card reveal-up">
+            <span class="resource-num">1</span>
+            <h3 data-i18n="resources.r1t">প্রথম ২৪ ঘণ্টা</h3>
+            <p data-i18n="resources.r1d">নিখোঁজ হওয়ার ২৪ ঘণ্টার মধ্যে VEVARZ-এ রিপোর্ট করুন এবং সাম্প্রতিক ছবি সংযুক্ত করুন।</p>
+          </article>
+          <article class="resource-card reveal-up">
+            <span class="resource-num">2</span>
+            <h3 data-i18n="resources.r2t">পোস্টার শেয়ার করুন</h3>
+            <p data-i18n="resources.r2d">কেস পোস্টার সামাজিক মাধ্যম, মসজিদ/মন্দির ও স্থানীয় দোকানে ছাপিয়ে ছড়িয়ে দিন।</p>
+          </article>
+          <article class="resource-card reveal-up">
+            <span class="resource-num">3</span>
+            <h3 data-i18n="resources.r3t">তথ্য যাচাই করুন</h3>
+            <p data-i18n="resources.r3d">অজানা নম্বর থেকে আসা তথ্য সরাসরি VEVARZ বা ১৩২১৯-এ যাচাই করুন — প্রতারণা থেকে সাবধান।</p>
+          </article>
+          <article class="resource-card reveal-up">
+            <span class="resource-num">4</span>
+            <h3 data-i18n="resources.r4t">নিরাপদ পুনর্মিলন</h3>
+            <p data-i18n="resources.r4d">খুঁজে পাওয়া ব্যক্তিকে সরাসরি হস্তান্তর না করে নিকটস্থ থানা বা VEVARZ যোগাযোগ কেন্দ্রে জানান।</p>
+          </article>
         </div>
       </div>
     </section>
@@ -533,7 +616,7 @@
           <div class="footer-social">
             <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
             <a href="#" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
-            <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-2C18.88 4 12 4 12 4s-6.88 0-8.59.42a2.78 2.78 0 0 0-1.95 2 29 29 0 0 0-.42 5.58 29 29 0 0 0 .42 5.58 2.78 2.78 0 0 0 1.95 2C5.12 20 12 20 12 20s6.88 0 8.59-.42a2.78 2.78 0 0 0 1.95-2 29 29 0 0 0 .42-5.58 29 29 0 0 0-.42-5.58z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#16042f"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-2C18.88 4 12 4 12 4s-6.88 0-8.59.42a2.78 2.78 0 0 0-1.95 2 29 29 0 0 0-.42 5.58 29 29 0 0 0 .42 5.58 2.78 2.78 0 0 0 1.95 2C5.12 20 12 20 12 20s6.88 0 8.59-.42a2.78 2.78 0 0 0 1.95-2 29 29 0 0 0 .42-5.58 29 29 0 0 0-.42-5.58z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#270C4F"/></svg></a>
           </div>
         </div>
 
@@ -610,3 +693,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+git 

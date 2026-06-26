@@ -6,7 +6,24 @@
   const drawerClose = document.getElementById('drawer-close');
   const langToggle = document.getElementById('lang-toggle');
   const langToggleMobile = document.getElementById('lang-toggle-mobile');
+  const heroTyped = document.getElementById('hero-typed');
   let currentLang = localStorage.getItem('vevarz-lang') || 'bn';
+  let typewriterTimer = null;
+
+  const TYPE_PHRASES = {
+    bn: [
+      'নিখোঁজদের ঘরে ফিরিয়ে আনুন',
+      'তাৎক্ষণিক রিপোর্ট করুন',
+      'প্রতিটি তথ্য গুরুত্বপূর্ণ',
+      'একটি কল জীবন বাঁচাতে পারে',
+    ],
+    en: [
+      'Bring missing people home',
+      'Report instantly today',
+      'Every single tip matters',
+      'One call can save a life',
+    ],
+  };
 
   function closeMenu() {
     if (navToggle) navToggle.checked = false;
@@ -19,6 +36,45 @@
     document.body.classList.add('menu-open');
     if (mobileDrawer) mobileDrawer.setAttribute('aria-hidden', 'false');
     if (mobileOverlay) mobileOverlay.setAttribute('aria-hidden', 'false');
+  }
+
+  function initTypewriter() {
+    if (!heroTyped) return;
+    if (typewriterTimer) clearTimeout(typewriterTimer);
+
+    const phrases = TYPE_PHRASES[currentLang] || TYPE_PHRASES.bn;
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function tick() {
+      const current = phrases[phraseIndex];
+      const speed = deleting ? 28 : 55;
+
+      if (!deleting) {
+        heroTyped.textContent = current.slice(0, charIndex + 1);
+        charIndex += 1;
+
+        if (charIndex === current.length) {
+          deleting = true;
+          typewriterTimer = setTimeout(tick, 2200);
+          return;
+        }
+      } else {
+        heroTyped.textContent = current.slice(0, charIndex - 1);
+        charIndex -= 1;
+
+        if (charIndex === 0) {
+          deleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+        }
+      }
+
+      typewriterTimer = setTimeout(tick, speed);
+    }
+
+    heroTyped.textContent = '';
+    tick();
   }
 
   function applyLanguage(lang) {
@@ -56,6 +112,8 @@
     document.querySelectorAll('.lang-label, .lang-label-mobile').forEach((el) => {
       el.textContent = label;
     });
+
+    initTypewriter();
 
     requestAnimationFrame(() => {
       document.body.style.opacity = '';
@@ -95,7 +153,7 @@
     }
   });
 
-  const revealClasses = '.reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale, .case-card, .found-card, .timeline-step, .join-card, .feature-card, .video-card, .reunited-card, .footer-brand, .footer-col, .footer-cta-inner';
+  const revealClasses = '.reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale, .case-card, .found-card, .timeline-step, .join-card, .feature-card, .video-card, .resource-card, .reunited-card, .footer-brand, .footer-col, .footer-cta-inner';
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -157,4 +215,10 @@
 
   window.addEventListener('scroll', setActiveNav, { passive: true });
   setActiveNav();
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches && heroTyped) {
+    const phrases = TYPE_PHRASES[currentLang] || TYPE_PHRASES.bn;
+    heroTyped.textContent = phrases[0];
+    if (typewriterTimer) clearTimeout(typewriterTimer);
+  }
 })();
